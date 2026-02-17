@@ -4,19 +4,20 @@ import com.devsuperio.desafioTres.entity.Client;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.PastOrPresent;
 import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.Size;
 
 import java.time.LocalDate;
 
 public class ClientDTO {
 
     private Long id;
-    @NotBlank
+    @NotBlank(message = "Name field cannot be empty")
     private String name;
-    @NotBlank
+    @NotBlank(message = "Just Numbers")
     private String cpf;
-    @Positive
+    @Positive(message = "Must be Positive")
     private Double income;
-    @PastOrPresent
+    @PastOrPresent(message = "It cannot be a future date.")
     private LocalDate birthDate;
     private Integer children;
 
